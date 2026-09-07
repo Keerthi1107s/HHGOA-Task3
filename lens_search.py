@@ -174,7 +174,12 @@ record = {
     "matched_url": best_match["link"],
     "timestamp_utc": datetime.now(timezone.utc).isoformat()
 }
-
+print("\n🔎 SOCIAL MEDIA MATCH FOUND")
+print("===========================")
+print("Platform:", best_match["source"])
+print("Match type:", best_match["type"])
+print("Title:", best_match["title"])
+print("URL:", best_match["link"])
 # Save JSON record
 with open("match_record.json", "w", encoding="utf-8") as file:
 
