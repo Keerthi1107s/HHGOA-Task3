@@ -1,0 +1,14 @@
+{
+    "image": "test.jpg",
+    "face_detection": "success",
+    "face_encoding": "success",
+    "reverse_image_search": "Google Lens",
+    "visual_matches_found": 60,
+    "exact_matches_found": 0,
+    "social_match_found": true,
+    "match_type": "visual_match",
+    "matched_source": "Instagram",
+    "matched_title": "DENIM JACKET 🧥🔥 ALL TYPES OF JACKET AVAILABLE 🧥 #jacket #delhiwholesalemarket #denimjacket #manufacturing #gandhinagar",
+    "matched_url": "https://www.instagram.com/reel/DcbBmxOyjlY/",
+    "timestamp_utc": "2026-09-07T05:50:55.532597+00:00"
+}
