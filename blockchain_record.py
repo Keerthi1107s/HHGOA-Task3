@@ -83,15 +83,32 @@ print("⏳ Transaction sent!")
 print("Transaction hash:", tx_hash.hex())
 
 # Wait for confirmation
-receipt = web3.eth.wait_for_transaction_receipt(tx_hash)
+tx_hash_hex = tx_hash.hex()
 
-print("\n✅ TRANSACTION CONFIRMED!")
-print("Block number:", receipt.blockNumber)
-print("Transaction hash:", tx_hash.hex())
-
-# Save transaction hash
+# Save immediately after the transaction is broadcast
 with open("transaction_hash.txt", "w", encoding="utf-8") as file:
-    file.write(tx_hash.hex())
+    file.write(tx_hash_hex)
+
+print("Transaction hash:", tx_hash_hex)
+
+print("\n⏳ Waiting for blockchain confirmation...")
+
+try:
+    receipt = web3.eth.wait_for_transaction_receipt(
+        tx_hash,
+        timeout=120,
+        poll_latency=5
+    )
+
+    print("\n✅ TRANSACTION CONFIRMED!")
+    print("Block number:", receipt.blockNumber)
+    print("Transaction hash:", tx_hash_hex)
+
+except Exception as e:
+    print("\n⚠️ Transaction was successfully broadcast, but confirmation could not be retrieved.")
+    print("You can verify the transaction on Sepolia Etherscan:")
+    print(f"https://sepolia.etherscan.io/tx/{tx_hash_hex}")
+    exit(1)
 
 # Save blockchain record
 blockchain_record = {

@@ -35,7 +35,7 @@ print("\n[2/4] 🔎 GOOGLE LENS REVERSE IMAGE SEARCH")
 print("-" * 40)
 
 result = subprocess.run(
-    [sys.executable, "lens_search.py"]
+    [sys.executable, "lens_search.py", image_path]
 )
 
 if result.returncode != 0:
